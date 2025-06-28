@@ -10,6 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("API is live and working 🚀");
+});
+
 app.use('/auth', authRoutes);
 
 

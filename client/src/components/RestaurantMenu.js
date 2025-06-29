@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurnantCategory";
 import image1 from "../images/img1.jpg";
-import { IoArrowBack } from "react-icons/io5"; // Back arrow icon
+import { IoArrowBack } from "react-icons/io5"; 
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="text-gray-800">
-      {/* Hero Image with Back Button */}
+      
       <div className="relative w-full h-96 md:h-96 rounded-b-3xl overflow-hidden">
         <img
           src={image1}
@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
         </button>
       </div>
 
-      {/* Info Section */}
+  
       <div className="px-4 py-4">
         <div className="flex items-center gap-3 text-sm font-nunito mb-2">
           <span className="flex items-center gap-1 text-orange-500 font-semibold">
@@ -70,7 +70,7 @@ const RestaurantMenu = () => {
           posuere erat a ante venenatis.
         </p>
 
-        {/* Category Chips */}
+       
         <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 mb-4">
           {categories.map((category, index) => (
             <button
@@ -90,7 +90,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {/* Category Items */}
+   
       <div className="px-4 pb-10">
         {categories.map((category, index) => (
           <RestaurantCategory

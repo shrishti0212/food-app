@@ -22,7 +22,7 @@ const ItemList = ({ items }) => {
             key={id}
             className="flex justify-between items-start gap-4 py-6 px-4"
           >
-            {/* Text content */}
+            
             <div className="w-8/12">
               <h3 className="font-semibold text-lg text-gray-800">{name}</h3>
               <p className="text-sm text-gray-600 mt-1">
@@ -31,7 +31,7 @@ const ItemList = ({ items }) => {
               <p className="text-xs text-gray-500 mt-2">{description}</p>
             </div>
 
-            {/* Image + Button */}
+           
             <div className="w-4/12 flex flex-col items-center">
               {imageId && (
                 <img

@@ -44,15 +44,15 @@ const appRouter = createBrowserRouter([
       
       {
         path:"/home",
-        element: <Body />,
+        element: <Body/>,
       },
       {
         path: "/about",
-        element: <Suspense fallback = {<h1>Loading.....</h1>} ><About/> </Suspense>,
+        element: <About/>
       },
       {
         path:"/contact",
-        element:<Contact />,
+        element:<Contact/>,
       }, 
       {
         path: "/grocery",

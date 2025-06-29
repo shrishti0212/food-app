@@ -6,14 +6,14 @@ const SplashScreen = () => {
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-nunito px-6">
-      {/* Logo */}
+      
       <img src={logo} alt="App Logo" className="size-80 animate-slide-down" />
 
-      {/* App Title */}
+      
       <h1 className="text-4xl font-bold mb-2 text-center font-nunito">Welcome to FoodieHub</h1>
       <p className="text-center text-gray-400 mb-10">Your cravings, delivered fast</p>
 
-      {/* Buttons */}
+      
       <div className="w-full max-w-xs space-y-4">
         <button
           onClick={() => navigate("/login")}

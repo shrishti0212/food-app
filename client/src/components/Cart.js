@@ -14,7 +14,7 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-black text-white relative">
-      {/* Top Bar */}
+     
       <div className="flex justify-between items-center px-4 pt-4">
         
         <button className="text-white text-lg" 
@@ -33,7 +33,7 @@ const Cart = () => {
 
       </div>
 
-      {/* Cart Items */}
+     
       <div className="flex-1 px-4 pt-10 space-y-6">
         {cartItems.length === 0 ? (
           <p className="text-center text-gray-400 mt-12">Your cart is empty.</p>
@@ -79,7 +79,7 @@ const Cart = () => {
         )}
       </div>
 
-      {/* Bottom Panel */}
+     
       {cartItems.length > 0 && (
         <div className="bg-white text-gray-800 rounded-t-2xl py-10 px-5 shadow-lg mt-8">
           

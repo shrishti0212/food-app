@@ -14,14 +14,14 @@ const RestaurantCard = ({ resData }) => {
 
   return (
     <div className="relative p-3 bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300">
-      {/* Image */}
+      
       <img
         className="w-full h-40 object-cover rounded-xl"
         alt={name}
         src={CDN_URL + cloudinaryImageId}
       />
 
-      {/* Details */}
+     
       <div className="mt-3 space-y-1">
         <h3 className="text-lg font-semibold truncate">{name}</h3>
         <p className="text-sm text-gray-500 truncate">{cuisines?.join(", ")}</p>
@@ -39,7 +39,7 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
-// HOC for Promoted Label
+
 export const withPromtedLabel = (RestaurantCard) => {
   return (props) => (
     <div className="relative">

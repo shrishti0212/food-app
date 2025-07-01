@@ -39,15 +39,13 @@ const Body = () => {
 
 
   if (ListOfRestaurants.length === 0) {
-    return (
-      <div className="min-h-screen flex flex-col justify-center items-center px-4">
-        <Shimmer />
-        <p className="text-center text-gray-500 mt-4">
-          No restaurants found. Please try again later.
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <Shimmer />
+    </div>
+  );
+}
+
 
   return (
     <>

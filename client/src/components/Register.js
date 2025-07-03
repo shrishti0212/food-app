@@ -10,7 +10,6 @@ const Register = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
-  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,15 +22,15 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post("/auth/register", { name, email, password });
+      const res = await axios.post("/auth/register", {
+        name: name.trim(),
+        email: email.trim(),
+        password,
+      });
       const { user, token } = res.data;
 
-      
       localStorage.setItem("token", token);
-
-     
       dispatch(loginUser(user));
-
       navigate("/home");
     } catch (err) {
       console.error(err);
@@ -41,7 +40,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-black text-white font-nunito">
-   
+      
       <div className="h-[180px] flex flex-col items-center justify-center">
         <h2 className="text-4xl font-bold mb-1 font-nunito mt-10">Sign Up</h2>
         <p className="text-lg text-center text-gray-400 mt-1">Create your new account</p>
@@ -49,63 +48,70 @@ const Register = () => {
 
       <div className="flex-grow" />
 
-  
+     
       <div className="w-full bg-white text-black rounded-t-3xl p-6 py-20">
-        {error && (
-          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
-        )}
+        <div className="w-[85%] max-w-sm mx-auto">
+          {error && (
+            <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+          )}
 
-        <label className="block text-xs font-semibold mb-1">NAME</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          className="w-full p-3 mb-4 rounded-xl bg-gray-100 outline-none"
-        />
-
-        <label className="block text-xs font-semibold mb-1">EMAIL</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="example@gmail.com"
-          className="w-full p-3 mb-4 rounded-xl bg-gray-100 outline-none"
-        />
-
-        <label className="block text-xs font-semibold mb-1">PASSWORD</label>
-        <div className="relative">
+          <label className="block text-xs font-semibold mb-1">NAME</label>
           <input
-            type={showPassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            className="w-full p-3 mb-4 rounded-xl bg-gray-100 outline-none"
+            autoFocus
+          />
+
+          
+          <label className="block text-xs font-semibold mb-1">EMAIL</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="example@gmail.com"
             className="w-full p-3 mb-4 rounded-xl bg-gray-100 outline-none"
           />
-          <span
-            className="absolute right-3 top-3 cursor-pointer text-gray-500"
-            onClick={() => setShowPassword(!showPassword)}
+
+         
+          <label className="block text-xs font-semibold mb-1">PASSWORD</label>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
+              className="w-full p-3 mb-4 rounded-xl bg-gray-100 outline-none"
+            />
+            <span
+              className="absolute right-3 top-3 cursor-pointer text-gray-500"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <img src={eye} alt="Toggle" />
+            </span>
+          </div>
+
+          
+          <button
+            onClick={handleRegister}
+            className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold"
           >
-            <img src={eye} alt="Toggle" />
-          </span>
+            SIGN UP
+          </button>
+
+          
+          <p className="text-center text-sm mt-6">
+            Already have an account?{" "}
+            <span
+              className="text-orange-500 font-bold cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
+              SIGN IN
+            </span>
+          </p>
         </div>
-
-        <button
-          onClick={handleRegister}
-          className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold"
-        >
-          SIGN UP
-        </button>
-
-        <p className="text-center text-sm mt-6">
-          Already have an account?{" "}
-          <span
-            className="text-orange-500 font-bold cursor-pointer"
-            onClick={() => navigate("/login")}
-          >
-            SIGN IN
-          </span>
-        </p>
       </div>
     </div>
   );

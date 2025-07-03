@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logo from "../images/Logo.png"; // Replace with your logo path
+import logo from "../images/Logo.png"; 
 
 const SplashScreen = () => {
   const navigate = useNavigate();

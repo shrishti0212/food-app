@@ -7,7 +7,17 @@ const authMiddleware = require('./middleware/authMiddleware');
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
+const allowedOrigins = [
+  'https://nomnomnow-shrishti-mishras-projects.vercel.app',
+  'http://localhost:3000',
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -16,7 +26,6 @@ app.get("/", (req, res) => {
 
 app.use('/auth', authRoutes);
 
-
 app.get('/auth/protected', authMiddleware, (req, res) => {
   res.json({ msg: `Welcome, ${req.user.name}` });
 });
@@ -24,7 +33,6 @@ app.get('/auth/protected', authMiddleware, (req, res) => {
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(process.env.PORT, () =>
-        
       console.log(`Server running on port ${process.env.PORT}`)
     );
   })
